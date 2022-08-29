@@ -37,7 +37,7 @@ export default function VideoGridItem({ video = {} }) {
                         />
                     </Link>
 
-                    <div clas="flex flex-col">
+                    <div className="flex flex-col">
                         <Link to={`videos/${id}`}>
                             <p className="text-slate-900 text-sm font-semibold">
                                 {title}

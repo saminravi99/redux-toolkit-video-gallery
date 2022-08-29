@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTags } from "../../features/tags/tagsSlice";
+import AuthorTag from "./AuthorTag";
 import ClearFilter from "./ClearFilter";
 import Tag from "./Tag";
 
@@ -33,6 +34,10 @@ export default function Tags() {
         {tags.map((tag) => (
           <Tag key={tag.id} title={tag.title} />
         ))}
+
+        {
+            authorTag !== "" && <AuthorTag authorTag={authorTag} />
+        }
       </div>
       <div>
         <ClearFilter />

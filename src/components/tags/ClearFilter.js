@@ -11,7 +11,6 @@ export default function ClearFilter() {
 
   const handleClearFilter = () => {
     dispatch(clearAllFilter())
-    document.getElementById("search").value = ""
   };
 
   return (

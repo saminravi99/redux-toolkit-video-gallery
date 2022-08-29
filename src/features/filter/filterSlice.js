@@ -37,5 +37,10 @@ const filterSlice = createSlice({
 });
 
 export default filterSlice.reducer;
-export const { tagSelected, tagRemoved, searched, setAuthorTag, clearAllFilter } =
-  filterSlice.actions;
+export const {
+  tagSelected,
+  tagRemoved,
+  searched,
+  setAuthorTag,
+  clearAllFilter,
+} = filterSlice.actions;
