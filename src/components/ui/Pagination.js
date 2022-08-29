@@ -4,9 +4,9 @@ import {  setPageNumber } from "../../features/pagination/paginationSlice";
 
 export default function Pagination() {
   const dispatch = useDispatch();
-  const { videosLength } = useSelector((state) => state.pagination);
+  const { videosLength, pageNumber } = useSelector((state) => state.pagination);
   const videosPerPage = 8;
-  const [isActivePage, setActivePage] = useState(1);
+  const [isActivePage, setActivePage] = useState(pageNumber);
 
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(videosLength / videosPerPage); i++) {
