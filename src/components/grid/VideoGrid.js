@@ -11,13 +11,12 @@ export default function VideGrid() {
         (state) => state.videos
     );
     const {pageNumber} = useSelector((state) => state.pagination);
-    console.log(pageNumber);
     const { tags, search, authorTag } = useSelector((state) => state.filter);
 
     useEffect(() => {
         dispatch(fetchVideos({ tags, search, pageNumber, authorTag }));
         dispatch(fetchVideosForPagination({ tags, search, authorTag }));
-    }, [dispatch, tags, search, pageNumber]);
+    }, [dispatch, tags, search, pageNumber, authorTag]);
 
     // decide what to render
     let content;
@@ -37,12 +36,16 @@ export default function VideGrid() {
     }
 
     return (
+      <section className="pt-12">
         <section className="pt-12">
-            <section className="pt-12">
-                <div className="grid grid-cols-12 gap-4 max-w-7xl mx-auto px-5 lg:px-0 min-h-[300px]">
-                    {content}
-                </div>
-            </section>
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <div className="grid grid-cols-12 gap-4 max-w-7xl mx-auto px-5 lg:px-0 min-h-[300px]">
+                {content}
+            </div>
+          )}
         </section>
+      </section>
     );
 }

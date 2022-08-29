@@ -1,7 +1,6 @@
 import axios from "../../utils/axios";
 
 export const getVideos = async (tags, search, pageNumber, author) => {
-    console.log(pageNumber);
     let queryString = "";
 
     if (tags?.length > 0) {

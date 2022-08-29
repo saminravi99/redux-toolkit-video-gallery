@@ -1,9 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   clearAllFilter,
-  clearAuthorTag,
-  tagRemoved,
-  tagSelected,
 } from "../../features/filter/filterSlice";
 
 export default function AuthorTag({ authorTag }) {
