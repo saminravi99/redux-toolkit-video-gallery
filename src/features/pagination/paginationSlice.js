@@ -13,8 +13,8 @@ const initialState = {
 // async thunk
 export const fetchVideosForPagination = createAsyncThunk(
   "pagination/fetchVideos",
-  async ({ tags, search }) => {
-    const videos = await getVideosForPagination(tags, search);
+  async ({ tags, search, authorTag }) => {
+    const videos = await getVideosForPagination(tags, search, authorTag);
     return videos;
   }
 );

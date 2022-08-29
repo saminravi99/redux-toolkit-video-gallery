@@ -5,7 +5,6 @@ import { fetchVideosForPagination, setPageNumber } from "../../features/paginati
 export default function Pagination() {
   const dispatch = useDispatch();
   const { videosLength } = useSelector((state) => state.pagination);
-  console.log(videosLength);
   const videosPerPage = 8;
   const [isActivePage, setActivePage] = useState(1);
 

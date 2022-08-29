@@ -1,6 +1,6 @@
 import axios from "../../utils/axios";
 
-export const getVideos = async (tags, search, pageNumber) => {
+export const getVideos = async (tags, search, pageNumber, author) => {
     console.log(pageNumber);
     let queryString = "";
 
@@ -8,10 +8,15 @@ export const getVideos = async (tags, search, pageNumber) => {
         queryString += tags.map((tag) => `tags_like=${tag}`).join("&");
     }
 
+    if (author !== "") {
+      queryString += `author_like=${author}`;
+    }
+
+
     if (search !== "") {
         queryString += `&q=${search}`;
     }
-
+    
     const response = await axios.get(
       `/videos/?${queryString}&_page=${pageNumber}&_limit=8`
     );
