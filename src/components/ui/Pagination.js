@@ -3,16 +3,21 @@ import { useDispatch, useSelector } from "react-redux";
 import {  setPageNumber } from "../../features/pagination/paginationSlice";
 
 export default function Pagination() {
+  //redux hooks 
   const dispatch = useDispatch();
   const { videosLength, pageNumber } = useSelector((state) => state.pagination);
+
   const videosPerPage = 8;
+  //local State
   const [isActivePage, setActivePage] = useState(pageNumber);
 
+  // to get the number of pages in an array
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(videosLength / videosPerPage); i++) {
     pageNumbers.push(i);
   }
 
+  // to set the active page
   const handlePageChange = (page) => {
     setActivePage(page);
     dispatch(setPageNumber(page));
