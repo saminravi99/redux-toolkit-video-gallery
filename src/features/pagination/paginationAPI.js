@@ -7,16 +7,14 @@ export const getVideosForPagination = async (tags, search, authorTag) => {
     queryString += tags.map((tag) => `tags_like=${tag}`).join("&");
   }
 
-   if (tags?.length > 0 && authorTag !== "") {
-     queryString += `&author_like=${authorTag}`;
-   }
-
+  if (tags?.length > 0 && authorTag !== "") {
+    queryString += `&author_like=${authorTag}`;
+  }
 
   if (authorTag !== "" && tags?.length === 0) {
     queryString += `author_like=${authorTag}`;
   }
 
- 
   if (search !== "") {
     queryString += `&q=${search}`;
   }

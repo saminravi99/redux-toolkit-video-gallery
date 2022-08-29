@@ -10,7 +10,7 @@ const initialState = {
   error: "",
 };
 
-// async thunk
+// async function to set pagination
 export const fetchVideosForPagination = createAsyncThunk(
   "pagination/fetchVideos",
   async ({ tags, search, authorTag }) => {

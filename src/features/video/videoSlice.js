@@ -11,12 +11,13 @@ const initialState = {
   unlikesError: "",
 };
 
-// async thunk
+// async function to fetch videos from the server
 export const fetchVideo = createAsyncThunk("video/fetchVideo", async (id) => {
   const video = await getVideo(id);
   return video;
 });
 
+// async function to like a video
 export const postVideoLike = createAsyncThunk(
   "video/postVideoLike",
   async ({ id, likes }) => {
@@ -25,6 +26,7 @@ export const postVideoLike = createAsyncThunk(
   }
 );
 
+// async function to unlike a video
 export const postVideoUnlike = createAsyncThunk(
   "video/postVideoUnlike",
   async ({ id, unlikes }) => {
